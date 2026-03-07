@@ -20,6 +20,7 @@ fun main() {
     val items: List<Resumible> = listOf(
         Persona(nombre = "Ana", edad = 20),
         Alumno(nombre = "Luis", edad = 19, curso = "1DAM"),
+        //Marta lleva espacios a propósito para verificar la normalización
         Persona(nombre = " Marta ", edad = 18),
     )
 
@@ -37,5 +38,7 @@ fun main() {
     for (item in items) {
         if (item is Persona) registro.registrar(item)
     }
+
+    // Buscar con nombre en minúsculas y sin espacios, debiendo encontrar " Marta "
     println("Buscar 'marta' -> ${registro.buscar("marta")?.resumen()}")
 }
