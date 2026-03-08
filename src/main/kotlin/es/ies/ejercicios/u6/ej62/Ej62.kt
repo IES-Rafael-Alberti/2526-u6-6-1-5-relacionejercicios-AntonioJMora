@@ -14,8 +14,23 @@ package es.ies.ejercicios.u6.ej62
 object Ej62
 
 fun main() {
-    println("Ejercicio 6.2 (plantilla)")
-    println("- Punto de partida: ejecuta `es.ies.ejercicios.u6.ej62.v0.main` (DemoV0)")
-    println("- Implementa la versión final en `es.ies.ejercicios.u6.ej62` (este paquete)")
-    println("- Después, actualiza este main para demostrar el funcionamiento con logs")
+    val lineas = listOf("Elemento A", "Elemento B", "Elemento C")
+
+    val reports : List<ReportTemplate> = listOf(
+        MarkdownReport(),
+        CsvReport()
+    )
+
+    reports.forEach { report ->
+        println(report.generate("Prueba",lineas))
+    }
+
+    val loggers : List<Logger> = listOf(
+        BaseLogger(),
+        StdoutLogger()
+    )
+
+    loggers.forEach { logger ->
+        logger.log("Mensaje de prueba")
+    }
 }
